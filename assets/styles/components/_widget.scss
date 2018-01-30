@@ -1,0 +1,52 @@
+.widget {
+    // discordbots.org provides fixed-size widgets
+    $height: 150px;
+    $width: 300px;
+
+    width: $width;
+    height: $height;
+    position: relative;
+
+    border-radius: 2px;
+
+    .inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: $width;
+        height: $height;
+        display: flex;
+        border-radius: 2px;
+
+        $bgcolor: transparentize(mix($color-gray, $color-light-blue, 90), 0.35);
+
+        .item {
+            width: $width / 2;
+            height: $height;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background-color: darken($bgcolor, 5);
+            @include transition();
+
+            &:hover {
+                background-color: $bgcolor;
+            }
+        }
+
+        .item:nth-of-type(2) {
+            left: $width;
+        }
+
+        opacity: 0;
+        @include transition();
+    }
+
+    &:hover .inner {
+        opacity: 1;
+    }
+}

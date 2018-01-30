@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: lighten($color-black, 31%);
+}
+
+::-webkit-scrollbar-track-piece {
+
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: lighten($color-black, 15%);
+
+    &:hover {
+        background-color: lighten($color-black, 20%);
+    }
+}
+
+::-webkit-scrollbar-corner {
+
+}
+
+::-webkit-resizer {
+
+}

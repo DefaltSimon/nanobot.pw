@@ -1,0 +1,33 @@
+{% extends "includes/base.twig" %}
+
+{% block title %}TOS{% endblock %}
+
+{% block body %}
+<div class="main">
+    <section class="body__tos body__page" id="tos">
+
+        <h1 class="tos--title mb45">Terms of Service</h1>
+        <div class="tos--details">
+            <p class="pb45">
+                On August 20th, 2017 Discord updated their Terms of Service with new rules on how/when bots can store user data ("End User Data" in their
+                <a class="link green" href="https://discordapp.com/developers/docs/legal">ToS</a>). We (bot owners) are now obligated to notify our
+                users of what kind of user data we store. Everything is as it was before, we are simply required to have a ToS that users must agree with.
+            </p>
+            <p class="tos--actual mb60">
+                By using Nano, you agree that we may collect some user data.<br>
+
+                The data we may store is, but is not limited to: <b>usernames, server and channel names</b>. By using features like reminders and the voting system you agree
+                that we may store the data you input along with other user data to preserve and aid functionality of the bot.
+            </p>
+            <p>
+                <b>Things to mention:</b><br><br>
+                If you are technically literal and know your way around Python,
+                you can also inspect the <a class="link green" href="https://github.com/DefaltSimon/Nano">source code</a> to see the implementation of these features.<br>
+                If you stopped using Nano and want all user data removed from the bot, contact me on <a class="link green" href="http://discord.nanobot.pw">Discord</a>.
+            </p>
+
+        </div>
+
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+a.link {
+    position: relative;
+    color: $color-light-blue;
+    font-weight: 700;
+    white-space: nowrap;
+
+    @include transition();
+
+    &:hover {
+        color: lighten($color-light-blue, 20%)
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: transparent;
+        @include transition();
+    }
+
+    &:hover:after {
+        width: 100%;
+        position: absolute;
+        background-color: lighten($color-dark-blue, 25%);
+    }
+
+    /* Colors */
+    &.green {
+        color: $color-green;
+
+        &:hover {
+            color: lighten($color-light-green, 20%)
+        }
+
+        &:hover:after {
+            background-color: lighten($color-dark-green, 25%);
+        }
+    }
+
+    &.white {
+        color: $color-white;
+
+        &:hover {
+            color: $color-white;
+        }
+
+        &:hover:after {
+            background-color: $color-white;
+        }
+    }
+
+    &.lightblue {
+        color: $color-light-blue;
+
+        &:hover {
+            color: lighten($color-dark-blue, 20%);
+        }
+
+        &:hover:after {
+            background-color: $color-dark-blue;
+        }
+    }
+}

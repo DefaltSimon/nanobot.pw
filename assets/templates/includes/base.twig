@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- page details -->
+    <meta name="description" content="A webpage about Nano, a Discord bot">
+    <meta name="keywords" content="Discord,Nano,bot,moderation,fun">
+    <meta name="author" content="DefaltSimon">
+
+    <!-- visual info -->
+    <title>{% block title %}{% endblock %} | Nano</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="theme-color" content="#3c3c3c">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+    <!-- css -->
+    <link href="./styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+    {% include "header.twig" %}
+    {% block pre_main %}
+    {% endblock %}
+    <main>
+        {% block body %}
+        {% endblock %}
+
+        {% block footer %}
+        <footer class="footer">
+            <div class="conteiner flex flex--column flex--middle flex--center">
+                <div>
+                    <a class="link white" href="https://github.com/DefaltSimon">About me</a>
+                    <span>|</span>
+                    <a class="link white" href="https://github.com/DefaltSimon/Nano">Nano on Github</a>
+                    <span>|</span>
+                    <a class="link white" href="tos.html">Terms of Service</a>
+                </div>
+                <div>&copy; Copyright 2017, DefaltSimon</div>
+            </div>
+
+        </footer>
+        {% endblock %}
+    </main>
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <!--<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-81866461-1', 'auto');
+        ga('send', 'pageview');
+    </script>-->
+    {% block scripts %}
+    {% endblock %}
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+/*----------------------------------*\
+    Footer
+\*----------------------------------*/
+.footer {
+    background-color: $color-gray;
+    color: $color-white;
+    font-family: $font-primary $font-secondary;
+    letter-spacing: 1px;
+
+    .container {
+        height: 100%;
+    }
+
+    &__divider {
+        height: 100%;
+        width: 2px;
+        background-color: $color-white;
+    }
+}

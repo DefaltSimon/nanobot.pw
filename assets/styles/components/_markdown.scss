@@ -1,0 +1,72 @@
+.markdown {
+    color: #b3aba6;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    // Paragraphs
+    p {
+        padding: 7px 2px;
+        line-height: 1.58;
+        font-size: 18px;
+        letter-spacing: 0.1px;
+    }
+
+    // Headings
+
+    // Main heading, should be used only for the title
+    h1.h {
+        font-size: 33px;
+        letter-spacing: 0.3px;
+
+        color: $color-dark-mint;
+    }
+
+    // Smaller one
+    h2.h {
+        font-size: 26px;
+        letter-spacing: 0.25px;
+
+        padding-top: 15px;
+        padding-bottom: 5px;
+
+        color: darken($color-dark-mint, 5%);
+    }
+
+    h3.h {
+        font-size: 22px;
+        letter-spacing: 0.2px;
+
+        color: darken($color-dark-mint, 10%);
+    }
+
+    // Images are centered
+    img.h {
+        align-self: center;
+
+        height: 450px;
+        width: auto;
+    }
+
+    @media #{$xs-down} {
+        img.h {
+            width: 100%;
+            height: auto;
+        }
+
+        p {
+            font-size: 1em;
+        }
+
+        h1.h {
+            font-size: 1.6em;
+        }
+
+        h2.h {
+            font-size: 1.4em;
+        }
+    }
+
+}

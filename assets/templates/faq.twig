@@ -1,0 +1,115 @@
+{% extends "includes/base.twig" %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+<div class="main">
+<section id="faq">
+    <div class="body__page body__faq flex flex--center flex--column">
+        <h1>FAQ and Guides</h1>
+
+        <div class="faq__category open">
+            <span class="faq__category--info">
+                <svg class="faq__category--icon" style="position: relative;height: 30px;width: 30px;" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />
+                </svg>
+                <span class="faq__category--name">Frequently Asked Questions</span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I add Nano to my server?</span>
+                <span class="faq__entry--a">It's easy. Just click on this <a class="link lightblue" href="https://discordapp.com/oauth2/authorize?client_id=171632249459048448&scope=bot&permissions=1543765079" target="_blank">link</a>,
+                                            sign into Discord (if not already), select your server and click <b>Authorize</b></span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">Commands are not working!</span>
+                <span class="faq__entry--a">There are a few possibilities: You're either using the wrong prefix (get it with <span class="command">nano.prefix</span>) or Nano is sleeping (ask an admin to wake him up with <span class="command">nano.wake</span>)</span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">A feature is broken!</span>
+                <span class="faq__entry--a">Before reporting a bug check a few things: check if you are using the right prefix (with <span class="command">nano.prefix</span>) and look at <span class="command">!help [your command]</span> to see if you are using the command correctly.
+                                            If you are, then it would be nice if you could report this bug to me/helpers on the <a class="link lightblue" href="https://discord.gg/FZJB6UJ">Nano Lounge</a></span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">I have a good idea for a feature!</span>
+                <span class="faq__entry--a">Every suggestion is very welcome and will be considered. When you have a solid idea, make sure to tell me at <a class="link lightblue" href="https://discord.gg/FZJB6UJ">Nano Lounge</a> or use <span class="command">!suggest [your suggestion]</span> </span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">Where can I see upcoming features and known bugs?</span>
+                <span class="faq__entry--a">I'm currently using <a class="link green" href="https://trello.com/b/u8kMqc2c" target="_blank">Trello</a> to track progress on new features, improvements and fixing bugs.</span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">I want to translate Nano into my language!</span>
+                <span class="faq__entry--a">That's awesome! Join the <a href="http://discord.nanobot.pw" class="link">Nano Lounge</a> and send me a DM! Oh, also check the #announcements channel for requirements when you join ;)</span>
+            </span>
+        </div>
+
+        <div class="faq__category open">
+            <span class="faq__category--info">
+                <svg class="faq__category--icon" style="width: 30px; height: 30px" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M21,17V5H3V17H21M21,3A2,2 0 0,1 23,5V17A2,2 0 0,1 21,19H16V21H8V19H3A2,2 0 0,1 1,17V5A2,2 0 0,1 3,3H21M5,7H11V11H5V7M5,13H11V15H5V13M13,7H19V9H13V7M13,11H19V15H13V11Z" />
+                </svg>
+                <span class="faq__category--name">Guides</span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I set up Nano's prefix? <span class="tag green">Nano Admin</span></span>
+                <span class="faq__entry--a">It's simple. <br>
+                    Run the command <span class="command">nano.changeprefix your_prefix</span> (where your_prefix is the new prefix you want).</span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I make someone a mod / admin?</span>
+                <span class="faq__entry--a">
+                    Nano works on a principle of roles for permissions. To begin, create two roles: <i>Nano Mod</i> and <i>Nano Admin</i>.
+                    These roles <b>DO NOT</b> need any permissions, the only important part is the name.
+                    To make someone a mod, assign them the role <b>Nano Mod</b> and for admins, give them the <b>Nano Admin</b> role.<br>
+                    Nano Admins automatically get all permissions that Nano Mods have.
+                    A detailed list of commands for each role can be found on the commands page under categories <a href="commands.html#moderator" class="link">Moderator</a> and <a href="commands.html#admin" class="link">Admin</a>.</span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I make Nano ignore a certain channel? <span class="tag green">Nano Admin</span></span>
+                <span class="faq__entry--a">
+                    Nano has a feature called <i>blacklisting</i>. With it, you can specify channels to ignore.<br>
+                    Then, simply run this command: <span class="command">nano.blacklist add #your_channel</span> (where your channel is the channel you want to ignore) </span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I set up "Join Messages"? <span class="tag green">Nano Admin</span></span>
+                <span class="faq__entry--a">
+                    To set your join message, simply type this: <span class="command">!joinmsg [your message]</span> (replace [your message] with the actual message).<br>
+                    The following formatting applies:
+                    <br><span class="command">:user</span> -> mention of joined user, <span class="command">:username</span> -> user's name, <span class="command">:server</span> -> server name<br>
+                    <br><b>Example:</b> <span class="command lighter">!joinmsg :user, welcome to our amazing server!</span>
+                </span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I allow normal members to give themselves a role? (selfroles) <span class="tag green">Nano Admin</span></span>
+                <span class="faq__entry--a">
+                    First, you must set up the roles that you want to have accessible to normal members of the server.
+                    To add a selfrole, use <span class="command">nano.settings selfrole add [role name]</span> and to remove it, do <span class="command">nano.settings selfrole remove [role name]</span>.
+                    <br>Normal users must use the command <span class="command">!selfrole</span> followed by the name of the role. If they do not know what roles they can access, they can list the server's current
+                    selfroles with <span class="command">!selfrole list</span>
+                </span>
+            </span>
+
+            <span class="faq__entry">
+                <span class="faq__entry--q">How do I change the language on my server? <span class="tag green">Nano Admin</span></span>
+                <span class="faq__entry--a">
+                    To see the available languages, type <span class="command">!language list</span>.
+                    Keep the language code in mind and type <span class="command">!language set language_code</span> (where language_code is the two-to-four character code of your language).<br>
+                    This will change your server language. Keep in mind that this feature is still in its "beta" stage.
+                </span>
+            </span>
+        </div>
+    </div>
+</section>
+</div>
+{% endblock %}

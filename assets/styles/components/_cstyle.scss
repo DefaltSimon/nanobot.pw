@@ -1,0 +1,10 @@
+.command {
+    background-color: rgba(66, 66, 66, 0.23);
+    border: 3px solid $color-black;
+    border-radius: 4px;
+    padding: 1px;
+
+    &.lighter {
+        background-color: rgba(86, 86, 86, 0.23);
+    }
+}

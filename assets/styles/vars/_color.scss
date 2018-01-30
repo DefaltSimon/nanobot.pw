@@ -1,0 +1,38 @@
+/*----------------------------------*\
+    color variables
+\*----------------------------------*/
+
+/* color variables */
+$color-white: #fff;
+$color-black: #212121;
+
+$color-gray: #2d2d2d;
+$color-dark-gray: #171717;
+$color-light-gray: #3c3c3c;
+
+$color-dark-blue: #1976D2;
+$color-light-blue: #2196F3;
+
+$color-someblue: #3444ac;
+
+$color-green: #4d8b38;
+$color-dark-green: #4b7c32;
+$color-light-green: #70af48;
+
+$color-mint: #98ff98;
+$color-dark-mint: #27954a;
+
+    /* colors you want to include in text and background */
+$colors: (
+        'white': $color-white,
+        'dark-blue': $color-dark-blue,
+        'light-blue': $color-light-blue,
+        'green': $color-green,
+        'dark-green': $color-dark-green,
+        'light-green': $color-light-green
+);
+
+/* percentage of darkening color */
+$darken: 5%;
+/* percentage of lightening color */
+$lighten: 8%;
