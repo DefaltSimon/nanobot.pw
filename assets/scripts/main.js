@@ -65,10 +65,10 @@ function getScrollFromTop() {
 }
 
 if (isOnMainPage()) {
-    const mainSections = document.querySelectorAll("section.track");
+    const mainSections = $("section.track");
 
     // Animate scroll
-    var animationLinks = document.querySelectorAll("a[href^='#']");
+    var animationLinks = $("a[href^='#']");
 
     forEach(animationLinks, function (index, item) {
         item.onclick = function (e) {
@@ -89,8 +89,8 @@ if (isOnMainPage()) {
     // Layout: {id: circle_from_id}
     var trackedCircles = {};
     forEach(mainSections, function (index, item) {
-        var id = item.getAttribute("id");
-        var actual = document.querySelector("#side_nav a[track=" + id + "]");
+        var id = $(item).attr("id");
+        var actual = $("#side_nav a[track=" + id + "]");
 
         // Check if it exists
         if (actual !== null) {
@@ -99,13 +99,13 @@ if (isOnMainPage()) {
     });
 
     // Light up the first one
-    var firstCircle = document.querySelector("#side_nav a");
-    firstCircle.classList.add("active");
+    var firstCircle = $("#side_nav a");
+    firstCircle.addClass("active");
 
     function makeOthersInactive(keep_thisone) {
         for (var a in trackedCircles) {
             if (trackedCircles[a] !== keep_thisone) {
-                trackedCircles[a].classList.remove("active");
+                trackedCircles[a].removeClass("active");
             }
         }
     }
@@ -117,14 +117,14 @@ if (isOnMainPage()) {
             var th = $(el);
 
             var elFromTop = th.offset().top;
-            var id = el.getAttribute("id");
+            var id = th.attr("id");
 
             var tracked = trackedCircles[id];
 
             // Light up a different circle if user scrolled
             if (windowFromTop >= elFromTop) {
                 makeOthersInactive(tracked);
-                tracked.classList.add("active");
+                tracked.addClass("active");
             }
         })
     }
@@ -134,41 +134,58 @@ if (isOnMainPage()) {
 }
 
 // All pages have navigation for mobile
-const hamburger =  document.getElementById("ham"),
-      mobileNavigation = document.getElementById("links");
+const hamburger =  $("ham"),
+      mobileNavigation = $("links");
 
 hamburger.onclick = function () {
-    mobileNavigation.classList.toggle("open");
+    mobileNavigation.toggleClass("open");
 };
+
+// Dropdown
+const dropdown = $(".other--inner");
+function toggleOtherDropdown() {
+    dropdown.toggleClass("expanded");
+}
+
+// Makes hover effect for the special dropdown indicator
+const dropdownIndicator = $(".dropdown-effect");
+const dropdownHeader = $(".header--link.special");
+dropdownHeader.hover(function () {
+    dropdownIndicator.toggleClass("darkened")
+});
 
 
 if (isOnPage("commands.html")) {
-    var commandSlides = document.querySelectorAll(".body__commands__container .cmd__category"),
-        commandCategories = document.querySelectorAll(".cmd__switcher li");
+    var commandSlides = $(".body__commands__container .cmd__category"),
+        commandCategories = $(".cmd__switcher li");
 
     var trackedSlides = {};
     forEach(commandSlides, function (index, el) {
-        var id = el.getAttribute("id");
+        let e = $(el);
+
+        var id = e.attr("id");
 
         if (id !== null) {
-            trackedSlides[id] = el;
+            trackedSlides[id] = e;
         }
     });
 
     // Command slide tracker
     var group_to_button = {};
     forEach(commandCategories, function (index, el) {
-        var slideName = el.getAttribute("slide");
+        let e = $(el);
+
+        var slideName = e.attr("slide");
 
         if (slideName !== null) {
-            group_to_button[slideName] = el;
+            group_to_button[slideName] = e;
         }
     });
 
     function hideOtherSlides(keep_this) {
         for (var a in trackedSlides) {
             if (trackedSlides[a] !== keep_this) {
-                trackedSlides[a].classList.remove("show");
+                trackedSlides[a].removeClass("show");
             }
         }
     }
@@ -176,7 +193,7 @@ if (isOnPage("commands.html")) {
     function unActiveAllCategories(but_this) {
         for (var a in group_to_button) {
             if (group_to_button[a] !== but_this) {
-                group_to_button[a].classList.remove("active");
+                group_to_button[a].removeClass("active");
             }
         }
     }
@@ -186,15 +203,17 @@ if (isOnPage("commands.html")) {
         el.onclick = function (e) {
             e.preventDefault();
 
-            var name = this.getAttribute("slide");
+            let th = $(this);
+
+            var name = th.attr("slide");
             var slide = trackedSlides[name];
 
             location.hash = name;
 
             hideOtherSlides(slide);
-            slide.classList.add("show");
+            slide.addClass("show");
             unActiveAllCategories(this);
-            this.classList.add("active")
+            th.addClass("active")
         }
     });
 
@@ -210,8 +229,8 @@ if (isOnPage("commands.html")) {
             //slide.classList.add("show");
             unActiveAllCategories(slide);
             //this.classList.add("active")
-            slide.classList.add("active");
-            one.classList.add("show")
+            slide.addClass("active");
+            one.addClass("show")
 
         }
     }

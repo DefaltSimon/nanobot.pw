@@ -88,7 +88,7 @@
         z-index: 998;
         @include user-select(none);
 
-        a {
+        .header--link {
             letter-spacing: 1px;
             color: inherit;
 
@@ -103,7 +103,7 @@
             border-radius: 1px;
             @include transition();
 
-            &:after {
+            &:not(.special):after {
                 content: "";
                 display: block;
                 height: 3px;
@@ -112,7 +112,7 @@
                 @include transition();
             }
 
-            &:hover:after {
+            &:not(.special):hover:after {
                 background-color: lighten($color-gray, 40%);
                 width: calc(100% + 8px);
                 @include transform(translateX(-4px));
@@ -176,6 +176,84 @@
 
     &__btn {
         z-index: 999;
+    }
+
+    &--other {
+        position: relative;
+
+        .dropdown-effect {
+            border: solid lighten($color-gray, 20%);
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+
+            @include transform(rotate(45deg));
+            @include transition();
+
+            position: absolute;
+            bottom: -3px;
+            left: 45%;
+
+            &.darkened {
+                border-color: lighten($color-gray, 50%);
+            }
+        }
+
+        .other--inner {
+            position: absolute;
+            $plus_width: 150%;
+
+            width: 100% + $plus_width;
+            left: - $plus_width/2;
+            top: 100% + 15%;
+
+            opacity: 0;
+            pointer-events: none;
+            @include transition();
+
+            padding: 10px 13px;
+            border: 2px solid $color-gray;
+            background-color: transparentize($color-gray, 0.15);
+
+            i.shape {
+                @include transition();
+
+                position: relative;
+                opacity: 0;
+                left: -8px;
+                top: -1px;
+
+                border: solid darken($color-white, 15%);
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                @include transform(rotate(-45deg))
+            }
+
+            a {
+                @include transition();
+                color: darken($color-white, 5%);
+                position: relative;
+                left: 0;
+            }
+
+            li:hover a {
+                $move-for: 10px;
+
+                color: darken($color-white, 35%);
+                left: $move-for;
+            }
+
+            li:hover i {
+                opacity: 1;
+                left: 0;
+            }
+
+            &.expanded {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
     }
 
     .nano {
