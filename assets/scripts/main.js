@@ -54,16 +54,16 @@ function throttle(fn, interval) {
 function isOnPage(page) {
     return window.location.href.includes(page)
 }
-
 function isOnMainPage() {
     return typeof main_page !== "undefined";
 }
-
-
 function getScrollFromTop() {
     return (typeof window.pageYOffset !== "undefined") ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 }
 
+
+// MAIN PAGE
+// Adds section tracking
 if (isOnMainPage()) {
     const mainSections = $("section.track");
 
@@ -99,8 +99,7 @@ if (isOnMainPage()) {
     });
 
     // Light up the first one
-    var firstCircle = $("#side_nav a");
-    firstCircle.addClass("active");
+    $("#side_nav a:first").addClass("active");
 
     function makeOthersInactive(keep_thisone) {
         for (var a in trackedCircles) {
@@ -133,35 +132,40 @@ if (isOnMainPage()) {
 
 }
 
+// ANY PAGE: mobile navigation
 // All pages have navigation for mobile
-const hamburger =  $("ham"),
-      mobileNavigation = $("links");
+const mobileNavigation = $("#links");
 
-hamburger.onclick = function () {
+$("#ham").click(function () {
     mobileNavigation.toggleClass("open");
-};
+});
 
 // Dropdown
-const dropdown = $(".other--inner");
+const dropdown = $("ul.other--inner");
 function toggleOtherDropdown() {
     dropdown.toggleClass("expanded");
 }
 
-// Makes hover effect for the special dropdown indicator
-const dropdownIndicator = $(".dropdown-effect");
-const dropdownHeader = $(".header--link.special");
-dropdownHeader.hover(function () {
-    dropdownIndicator.toggleClass("darkened")
+// Delays the vanishing of the dropdown
+var hoverTimeout;
+$('.header--other').hover(function() {
+    clearTimeout(hoverTimeout);
+    toggleOtherDropdown()
+}, function() {
+    hoverTimeout = setTimeout(function() {
+        toggleOtherDropdown()
+    }, 350);
 });
 
-
+// COMMAND PAGE
+// Adds slides that are switched in-place when a different category is clicked
 if (isOnPage("commands.html")) {
     var commandSlides = $(".body__commands__container .cmd__category"),
         commandCategories = $(".cmd__switcher li");
 
     var trackedSlides = {};
     forEach(commandSlides, function (index, el) {
-        let e = $(el);
+        var e = $(el);
 
         var id = e.attr("id");
 
@@ -173,8 +177,7 @@ if (isOnPage("commands.html")) {
     // Command slide tracker
     var group_to_button = {};
     forEach(commandCategories, function (index, el) {
-        let e = $(el);
-
+        var e = $(el);
         var slideName = e.attr("slide");
 
         if (slideName !== null) {
@@ -200,10 +203,10 @@ if (isOnPage("commands.html")) {
 
     // Change slides when a group is clicked
     forEach(commandCategories, function (index, el) {
-        el.onclick = function (e) {
+        $(el).click(function (e) {
             e.preventDefault();
 
-            let th = $(this);
+            var th = $(this);
 
             var name = th.attr("slide");
             var slide = trackedSlides[name];
@@ -214,7 +217,7 @@ if (isOnPage("commands.html")) {
             slide.addClass("show");
             unActiveAllCategories(this);
             th.addClass("active")
-        }
+        })
     });
 
     // Check hash in url and redirect to that category
