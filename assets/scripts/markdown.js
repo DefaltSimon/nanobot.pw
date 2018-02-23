@@ -70,8 +70,12 @@ function removeLoadingBar() {
 // Allow the browser to actually display the rendered content so the widths are correct
 // (it doesn't matter if it looks bad because there is a loading bar
 setTimeout(function () {
-    fixImageMargins();
     removeLoadingBar();
 }, 35);
+
+window.onload = function() {
+    console.log("Loaded, fixing image margins...");
+    fixImageMargins();
+};
 
 // TODO remove loading bar
