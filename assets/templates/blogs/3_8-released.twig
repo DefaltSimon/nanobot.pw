@@ -1,0 +1,77 @@
+{% extends "../bloginclude/base.twig" %}
+
+{% block title %}Changelog{% endblock %}
+
+{% block body %}
+    <div class="main">
+        <section class="body__changelog body__page">
+            <!-- loading bar -->
+            <section class="loading flex flex--column active">
+                <!-- spinkit animation -->
+                <div class="sk-folding-cube">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                </div>
+                <span class="text-bold text">Loading...</span>
+            </section>
+
+            <h1 class="changelog--title">Changelog</h1>
+
+            <section class="markdown box" id="3.8">
+<span class="raw">
+# Update 3.8
+
+Hi everyone, it's been a few months since the last update, but here it is at last!
+This time, I tried to focus on adding something new, but also fixing the things that **REALLY** need to be fixed (like the spam filter, see below).
+
+## Massive improvements to the spam filter
+As the title suggests, I have worked on a better system for spam and swearing detection and it is included in the 3.8 update.
+Since the beginning of adding the spam filter I knew there would be some false positives, but as people reached out and showed me some of the stuff that was getting filtered... it had to be fixed 😑 (massive thanks to  Etanarvazac, Nerf Expertise and others for bringing this to my attention)
+
+The new system detects "gibberish" (like *asdasdasdasdasd*), excessive amount of caps, mention spam and even repeating messages. If you feel like the system could still benefit from better detection and have an idea, please reach out to me in the support server.
+
+## New command: !gamedb
+This command was in the back of my mind ever since movie search was added. It is powered by https://www.igdb.com (check them out, they are pretty cool).
+
+![Game search](../images/gamedb.gif)
+The usage is very simple: **!gamedb [title]**.
+
+
+## Rate-limiting (the good kind)
+Some of you who know what rate-limiting is might already be going: "Ohhhh no, he's gonna lock us down and make us pay to use Nano". No.
+For those unfamiliar with the term, it simply means that your usage of commands per certain time is... not infinite. The reason I included this is because with the bot growing bigger and bigger, there will always be some people just ruining the fun for others and spamming commands, which until made the bot lock up for the entire shard (~1000 servers).
+
+### The big reveal
+As I mentioned above, Nano is still completely free and available for everyone. The rate-limiting system is adjusted to limit a user to **2** commands per **5** seconds. You will rarely hit that limit, but it is a "necessary evil" to prevent abuse.
+
+
+---
+
+## Other changes
+This update also includes a  *~lot*  of bug-fixes, but I won't go in-depth because they are boring.
+
+Before you get bored and close this tab, please note that **!vote start/end/status** has been renamed to **!poll** to better reflect the actual function.
+The usage has "again" been changed: **!poll start "Any ideas?" No|Go away|Yeah, but I'm too lazy** - you can use quotation marks to enclose the title and **|** OR **,** as a separator for the choices.
+
+**!imdb** usage has been somewhat simplified - you can now type *!imdb Love, Simon* instead of having to type the "search" subcommand (I know right, what a game changer 😊).
+
+---
+
+## That's pretty much it!
+Before I end this blog post, I'd like to thank all of you for reading though this post and for the support you have given this project.
+Also, Nano is soon to reach **4000 SERVERS**. WOOOOOW! That's a lot of people! Imagine this: if only one person from each server were to like this bot, that would be like a quarter of the entire stadium near where I live. **Mind. Blown.**
+
+%video:../videos/mindblown2.mp4%
+
+</span>
+            </section>
+        </section>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js" integrity="sha256-dwhppIrxD8qC6lNulndZgtIm4XBU9zoMd9OUoXzIDAE=" crossorigin="anonymous"></script>
+<script src="../scripts/markdown.js"></script>
+{% endblock %}

@@ -44,7 +44,6 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     return gulp.src(paths.src + 'scripts/**/*.js')
         .pipe(sourcemaps.init())
-        .pipe(concat('main.js'))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.dist + 'scripts'))
         .pipe(browserSync.stream());
@@ -62,9 +61,15 @@ gulp.task('images', function() {
         .pipe(browserSync.stream());
 });
 
+gulp.task("videos", function () {
+    return gulp.src(paths.src + "videos/*")
+        .pipe(gulp.dest(paths.dist + "videos"))
+        .pipe(browserSync.stream())
+});
+
 // Html
 gulp.task('twigIncludeMain', function() {
-    return gulp.src(paths.src + 'templates/*.twig')
+    return gulp.src(paths.src + 'templates/**/*.twig')
         .pipe(twig())
         .pipe(gulp.dest(paths.dist))
         .pipe(browserSync.stream());
@@ -100,6 +105,7 @@ gulp.task('build', function(callback) {
         'scripts',
         'fonts',
         'images',
+        'videos',
         'html',
         callback);
 });

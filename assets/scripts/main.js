@@ -50,6 +50,9 @@ function throttle(fn, interval) {
         }
     };
 }
+function redirectToPage(pageUrl) {
+    window.location.href = pageUrl;
+}
 
 function isOnPage(page) {
     return window.location.href.includes(page)

@@ -1,0 +1,45 @@
+{% extends "includes/base.twig" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+<div class="main">
+<section id="faq">
+    <div class="body__page body__blog flex--center">
+
+        <h1 class="h1title">Blog</h1>
+        <span class="description">Read all about the newest things™</span>
+
+        <div class="wrapper">
+            <section class="blog">
+                <div class="entry">
+                    <span class="title">3.8 Released!</span>
+                    <span class="desc">The 3.8 update has been released and includes many improvements and a new command: <b>!gamedb</b></span>
+                    <a href="blogs/3_8-released.html" class="hf"><span>...</span></a>
+                </div>
+                <div class="entry">
+                    <span class="title">3.7 Released!</span>
+                    <span class="desc">The 3.7 update has been released! Read more...</span>
+                    <a href="blogs/3_7-released.html" class="hf"><span>...</span></a>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const wToH = 0.7;
+
+    $(".blog .entry").each(function (index) {
+        var th = $(this);
+
+        var width = th.width();
+        // Scale the box as specified in wToH
+        th.css({"height": width * wToH});
+    });
+</script>
+{% endblock %}

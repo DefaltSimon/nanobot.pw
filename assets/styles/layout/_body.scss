@@ -123,6 +123,7 @@
         }
     }
 
+    // COMMANDS
     &__commands {
         &__container {
             min-height: 100%;
@@ -321,6 +322,7 @@
         }
     }
 
+    // FREQUENTLY ASKED QUESTIONS
     &__faq {
         h1 {
             font-size: 40px;
@@ -384,9 +386,13 @@
         }
     }
 
+    // CHANGELOG
     &__changelog {
         min-height: 100vh;
-        padding: 20px 50px;
+
+        $ch-padding-vertical: 20px;
+        $ch-padding-horizontal: 50px;
+        padding: $ch-padding-vertical $ch-padding-horizontal;
         align-items: flex-start;
         font-family: "Arimo", $font-primary;
         background-color: mix(#5d3732, $color-black, 30);
@@ -405,18 +411,55 @@
                 margin-bottom: 35px;
             }
 
-            &--box {
-                width: calc(100% - 60px);
-                margin: 20px;
-                padding: 15px;
-                border: 1px solid $color-light-gray;
-                border-radius: 1px;
+
+        }
+
+        .box {
+            width: calc(100% - 60px);
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid $color-light-gray;
+            border-radius: 1px;
+        }
+
+        .loading {
+
+            &.active {
+                // Ensures this is over the whole screen except the navigation
+
+                width: calc(100vw + #{$ch-padding-horizontal});
+                height: calc(100vh + #{$ch-padding-vertical});
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: transparentize($color-gray, 0.001);
+
+                pointer-events: all;
+                z-index: 1;
+                opacity: 1;
+
+                position: absolute;
+                left: -$ch-padding-horizontal;
+                top: -$ch-padding-vertical;
+
+                .text {
+                    // the dots make it look uncentered
+                    position: relative;
+                    left: 3px;
+                    letter-spacing: 1px;
+                }
+
+                @include transition(.3s);
             }
 
-
+            &.animate {
+                opacity: 0;
+                pointer-events: none;
+            }
         }
     }
 
+    // TERMS OF SERVICE
     &__tos {
         padding: 35px;
         align-items: flex-start;
@@ -436,6 +479,109 @@
         }
     }
 
+
+    // BLOG
+    &__blog {
+        font-weight: normal;
+
+        .h1title {
+            font-weight: 700;
+            font-size: 3.5em;
+            letter-spacing: 1.5px;
+            margin-top: 40px;
+
+        }
+
+        .description {
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+
+        .wrapper {
+            $margins: 50px;
+
+            height: calc(100% - #{$margins});
+            width: calc(100% - #{$margins});
+        }
+
+        .blog {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            //justify-content: center;
+
+            margin: 50px;
+
+            .entry {
+                $entry-margin: 2px;
+                $border-size: 1.5px;
+
+                min-height: 150px;
+                max-height: 200px;
+
+                $calculated-width: calc(33% - #{$entry-margin}*2 - #{$border-size}*2);
+
+                display: flex;
+                position: relative;
+                flex: 0 1 $calculated-width;
+                margin: $entry-margin;
+
+                border: solid $border-size darken($color-someblue, 30%);
+                background-color: darken($color-dark-blue, 5%);
+
+                padding: 20px 18px 25px;
+
+                flex-direction: column;
+
+                .title {
+                    font-size: 2em;
+                    white-space: nowrap;
+                    margin-bottom: 8px;
+                }
+
+                .desc {
+                    font-size: 0.785em;
+                    word-wrap: break-word;
+                }
+
+                .hf {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-color: transparentize($color-black, 0.5);
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    $arrow-scale: 20px;
+
+                    span {
+                        font-size: 1.8em;
+                        font-weight: 700;
+                        color: transparentize($color-white, 0.25);
+                        user-select: none;
+                    }
+
+                    @include transition();
+                    opacity: 0;
+                    cursor: pointer;
+                    pointer-events: all;
+                }
+
+                .hf:hover {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+        }
+
+    }
+
+
+    // MEDIA QUERIES
     @media #{$xs-down} {
         &__commands {
             &__text {
@@ -469,7 +615,7 @@
         &__changelog {
             padding: 0;
 
-            .changelog--box {
+            .box {
                 width: 100%;
                 padding: 0 5px;
                 margin: 0;

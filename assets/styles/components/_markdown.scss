@@ -1,4 +1,9 @@
 .markdown {
+    .raw {
+        display: none;
+    }
+
+
     color: #b3aba6;
 
     display: flex;
@@ -17,7 +22,7 @@
     // Headings
 
     // Main heading, should be used only for the title
-    h1.h {
+    h1 {
         font-size: 33px;
         letter-spacing: 0.3px;
 
@@ -25,7 +30,7 @@
     }
 
     // Smaller one
-    h2.h {
+    h2 {
         font-size: 26px;
         letter-spacing: 0.25px;
 
@@ -35,23 +40,30 @@
         color: darken($color-dark-mint, 5%);
     }
 
-    h3.h {
-        font-size: 22px;
+    h3 {
+        font-size: 19px;
         letter-spacing: 0.2px;
 
-        color: darken($color-dark-mint, 10%);
+        color: darken($color-dark-mint, 8%);
     }
 
     // Images are centered
-    img.h {
-        align-self: center;
-
+    img {
         height: 450px;
         width: auto;
+
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    hr {
+        border-style: solid;
+        border-width: 1px;
+        border-color: $color-light-gray;
     }
 
     @media #{$xs-down} {
-        img.h {
+        img {
             width: 100%;
             height: auto;
         }
@@ -60,13 +72,14 @@
             font-size: 1em;
         }
 
-        h1.h {
+        h1 {
             font-size: 1.6em;
         }
 
-        h2.h {
+        h2 {
             font-size: 1.4em;
         }
     }
+
 
 }
