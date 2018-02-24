@@ -1,2 +1,3 @@
-# nano
-## Frontend for nanobot.pw
+# Nano
+
+Webpage design for nanobot.pw

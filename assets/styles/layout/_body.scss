@@ -386,15 +386,15 @@
         }
     }
 
-    // CHANGELOG
-    &__changelog {
+    // BLOG ENTRIES
+    &__blog {
         min-height: 100vh;
 
         $ch-padding-vertical: 20px;
         $ch-padding-horizontal: 50px;
         padding: $ch-padding-vertical $ch-padding-horizontal;
         align-items: flex-start;
-        font-family: "Arimo", $font-primary;
+        font-family: "Arimo", $font-primary, $font-secondary;
         background-color: mix(#5d3732, $color-black, 30);
 
         $color-grayish: #b4aba5;
@@ -408,16 +408,18 @@
                 align-self: flex-start;
                 padding: 5px;
 
-                margin-bottom: 35px;
-            }
+                margin-top: 8px;
+                margin-bottom: 15px;
 
+                color: $color-dark-green;
+            }
 
         }
 
         .box {
             width: calc(100% - 60px);
-            margin: 20px;
-            padding: 15px;
+            margin: 5px;
+            padding: 12px 22px;
             border: 1px solid $color-light-gray;
             border-radius: 1px;
         }
@@ -481,7 +483,7 @@
 
 
     // BLOG
-    &__blog {
+    &__blogs {
         font-weight: normal;
 
         .h1title {
@@ -508,7 +510,6 @@
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            //justify-content: center;
 
             margin: 50px;
 
@@ -517,9 +518,10 @@
                 $border-size: 1.5px;
 
                 min-height: 150px;
-                max-height: 200px;
+                max-height: 800px;
 
-                $calculated-width: calc(33% - #{$entry-margin}*2 - #{$border-size}*2);
+                $per-row: 3;
+                $calculated-width: calc((100/#{$per-row})*1% - #{$entry-margin}*2 - #{$border-size}*2);
 
                 display: flex;
                 position: relative;

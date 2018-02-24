@@ -5,7 +5,7 @@
 {% block body %}
 <div class="main">
 <section id="faq">
-    <div class="body__page body__blog flex--center">
+    <div class="body__page body__blogs flex--center">
 
         <h1 class="h1title">Blog</h1>
         <span class="description">Read all about the newest things™</span>
@@ -32,14 +32,21 @@
 
 {% block scripts %}
 <script>
-    const wToH = 0.7;
+    const wToH = 0.9;
+
+    var maxHeight = 0;
 
     $(".blog .entry").each(function (index) {
         var th = $(this);
 
         var width = th.width();
+        var height = width * wToH;
+        if (height > maxHeight) {
+            maxHeight = height;
+        }
         // Scale the box as specified in wToH
-        th.css({"height": width * wToH});
+        th.css({"height": height});
     });
+    //$(".blog").height(maxHeight);
 </script>
 {% endblock %}
