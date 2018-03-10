@@ -32,21 +32,27 @@
 
 {% block scripts %}
 <script>
-    const wToH = 0.9;
+    const wToH = 0.99;
 
-    var maxHeight = 0;
+    var peakHeight = 0;
+    var maxAllowedH = 280;
 
     $(".blog .entry").each(function (index) {
         var th = $(this);
 
         var width = th.width();
         var height = width * wToH;
-        if (height > maxHeight) {
-            maxHeight = height;
+
+        if (height > maxAllowedH) {
+            height = maxAllowedH
         }
+        if (height > peakHeight) {
+            peakHeight = height;
+        }
+
         // Scale the box as specified in wToH
         th.css({"height": height});
     });
-    //$(".blog").height(maxHeight);
+    //$(".blog").height(peakHeight);
 </script>
 {% endblock %}

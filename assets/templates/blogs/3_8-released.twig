@@ -26,23 +26,24 @@ This time, I tried to focus on adding something new, but also fixing the things 
 
 ## Massive improvements to the spam filter
 As the title suggests, I have worked on a better system for spam and swearing detection and it is included in the 3.8 update.
-Since the beginning of adding the spam filter I knew there would be some false positives, but as people reached out and showed me some of the stuff that was getting filtered... it had to be fixed 😑 (massive thanks to  Etanarvazac, Nerf Expertise and others for bringing this to my attention)
+Since the beginning of adding a spam filter I knew there would be some false positives, but as people reached out and showed me some of the stuff that was getting filtered... it had to be fixed 😑 (massive thanks to  Etanarvazac, Nerf Expertise and others for bringing this to my attention)
 
 The new system detects "gibberish" (like *asdasdasdasdasd*), excessive amount of caps, mention spam and even repeating messages. If you feel like the system could still benefit from better detection and have an idea, please reach out to me in the support server.
 
 ## New command: !gamedb
-This command was in the back of my mind ever since movie search was added. It is powered by https://www.igdb.com (check them out, they are pretty cool).
+This command was in the back of my mind ever since movie search was added. It is powered by https://www.igdb.com (check 'em out, they are pretty cool).
 
 ![Game search](../images/gamedb.gif)
-The usage is very simple: **!gamedb [title]**.
+The usage is very simple: **!gamedb [title]**. The command shows a short description, ratings, genres and even a trailer (if available).
 
 
 ## Rate-limiting (the good kind)
-Some of you who know what rate-limiting is might already be going: "Ohhhh no, he's gonna lock us down and make us pay to use Nano". No.
-For those unfamiliar with the term, it simply means that your usage of commands per certain time is... not infinite. The reason I included this is because with the bot growing bigger and bigger, there will always be some people just ruining the fun for others and spamming commands, which until made the bot lock up for the entire shard (~1000 servers).
+Some of you who know what rate-limiting is are probably already thinking: "Ohhhh no, he's gonna set restrictions and make us pay to use Nano".
+No.
+For those unfamiliar with the term, rate-limiting simply means that your usage of commands per certain time is... not infinite. The reason I included this is because with the bot growing bigger and bigger, there will always be some people just ruining the fun for others and spamming commands, which until made the bot lock up for the entire shard (~1000 servers).
 
 ### The big reveal
-As I mentioned above, Nano is still completely free and available for everyone. The rate-limiting system is adjusted to limit a user to **2** commands per **5** seconds. You will rarely hit that limit, but it is a "necessary evil" to prevent abuse.
+As I mentioned above, Nano is still completely free and available for everyone. The rate-limiting system is adjusted to limit a user to **2** commands per **5** seconds. You will rarely hit that limit, but it is a necessary thing to prevent abuse. If I notice people hitting this limit often, I will probably increase it to 3 per 5 seconds.
 
 
 ---

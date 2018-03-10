@@ -594,6 +594,16 @@
                 p {
                     width: 80%;
                 }
+
+                .cont {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .minitext {
+                    font-size: 0.9em;
+                }
             }
 
             &__container {
@@ -606,6 +616,7 @@
                 }
             }
         }
+
         &__faq {
             .faq {
                 &__category {
@@ -621,6 +632,36 @@
                 width: 100%;
                 padding: 0 5px;
                 margin: 0;
+            }
+        }
+
+        &__blogs {
+            .blog {
+                flex-direction: column;
+                margin: 5px 5px 25px;
+
+                .entry {
+
+                }
+            }
+        }
+
+        &__blog {
+            padding: 10px 15px;
+
+            .changelog--title {
+                font-size: 2.4em;
+                text-align: center;
+            }
+
+            .markdown.box {
+                width: 100%;
+                margin: 0;
+                padding: 5px;
+            }
+
+            .rendered {
+                max-width: 100%;
             }
         }
     }
