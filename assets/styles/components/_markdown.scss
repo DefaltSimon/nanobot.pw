@@ -3,8 +3,8 @@
         display: none;
     }
 
-
-    color: #b3aba6;
+    $color: #b3aba6;
+    color: $color;
 
     display: flex;
     justify-content: flex-start;
@@ -17,6 +17,28 @@
         line-height: 1.58;
         font-size: 18px;
         letter-spacing: 0.1px;
+    }
+
+    a {
+        position: relative;
+        color: darken($color, 10%);
+
+        &::before {
+            content: '';
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 0;
+            height: 1px;
+            background-color: $color-green;
+            @include transition();
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
     }
 
     // Headings
@@ -57,9 +79,19 @@
     }
 
     hr {
-        border-style: solid;
-        border-width: 1px;
-        border-color: $color-light-gray;
+        border: 1px solid $color-light-gray;
+    }
+
+    ul {
+        margin-top: 10px;
+        margin-bottom: 8px;
+        padding-left: 20px;
+
+        list-style: disc inside;
+
+        li {
+            display: list-item;
+        }
     }
 
     @media #{$xs-down} {
