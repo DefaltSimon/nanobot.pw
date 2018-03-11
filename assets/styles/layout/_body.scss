@@ -531,7 +531,7 @@
                 border: solid $border-size darken($color-someblue, 30%);
                 background-color: darken($color-dark-blue, 5%);
 
-                padding: 20px 18px 25px;
+                padding: 40px 18px 25px;
 
                 flex-direction: column;
 
@@ -542,7 +542,7 @@
                 }
 
                 .desc {
-                    font-size: 0.785em;
+                    font-size: 0.85em;
                     word-wrap: break-word;
                 }
 
