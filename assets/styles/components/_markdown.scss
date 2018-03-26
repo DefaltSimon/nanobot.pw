@@ -21,7 +21,7 @@
 
     a {
         position: relative;
-        color: darken($color, 10%);
+        color: lighten($color, 10%);
 
         &::before {
             content: '';
@@ -71,7 +71,7 @@
 
     // Images are centered
     img {
-        height: 450px;
+        //height: 450px;
         width: auto;
 
         margin-top: 10px;
@@ -92,6 +92,10 @@
         li {
             display: list-item;
         }
+    }
+
+    code {
+        background-color: transparentize(darken(mix(#5d3732, $color-black, 30), 3), 0.25);
     }
 
     @media #{$xs-down} {

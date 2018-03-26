@@ -1,0 +1,98 @@
+{% extends "../bloginclude/base.twig" %}
+
+{% block title %}Docker Support{% endblock %}
+
+{% block body %}
+    <div class="main">
+        <section class="body__blog body__page">
+            <!-- loading bar -->
+            <section class="loading flex flex--column active">
+                <!-- spinkit animation -->
+                <div class="sk-folding-cube">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                </div>
+                <span class="text-bold text">Loading...</span>
+            </section>
+
+            <h1 class="changelog--title">Docker Support (post-3.8 update)</h1>
+
+            <section class="markdown box" id="3.8">
+<span class="raw">
+#### Welcome back to the blog!
+#### In this post I'll explain options for self-hosting the bot. I'll talk about Docker - what it is, how it works and how you can set it up in a short amount of time.
+
+##### FYI: This blog post assumes basic knowledge of Linux
+
+---
+
+# Docker... what?
+For those unfamiliar with it, **Docker** is a virtualization software that makes running both basic and complex software "stacks" much simpler.
+If you don't care what it is, **that's fine**. If you want to read more about Docker, you can do so [on their website](https://docker.com/).
+
+Before continuing though, you need to install Docker on your machine - see [this guide](https://docs.docker.com/install/). I **highly** recommend having a Linux server for this, but Windows 10 Pro and Mac are both supported as well.
+After installation, verify that Docker is properly installed on your machine with this command:
+
+![Docker --version](../images/blog_docker_dockerverify.png)
+
+You will also need **Docker compose** - install it [here](https://docs.docker.com/compose/install/) and verify proper installation by typing this command:
+
+![docker-compose --version](../images/blog_docker_dockercompose.png)
+
+## Setting everything up
+To start off, there are a few things you will need. Firstly, download [these files](https://github.com/DefaltSimon/Nano/releases/download/v3.8/SelfhostingPackage.zip) and extract them into a folder.
+After you have done that, there are a few things you will need to fill out.
+
+![Settings #1](../images/blog_docker_settings.png)
+
+To fill out the **token**, follow this guide: [Creating a discord bot and getting a token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
+For **ownerid**, you must first turn on Developer mode in *User Settings -> Appearance*. Then, right click on yourself and click *Copy ID* to get the ID you need. With this ID, you give yourself all permissions, so be careful.
+
+![Copy ID](../images/blog_docker_copyid.png)
+
+You should leave the **server** setting as well as both *Redis* and *RedisCache* alone as messing with these settings will cause the bot to stop working correctly.
+
+Now onto **config.ini**. This configuration file holds tokens for features like game and movie search, cat images, osu, Giphy, Steam and other things.
+Each of these features has their own token and this guide would be too long if I went into detail for getting tokens for all of these sites, but it should be relatively simple.
+Here are the links:
+* [Steam](https://steamcommunity.com/dev/apikey)
+* [backpack.tf](https://backpack.tf/developer)
+* [Giphy](https://developers.giphy.com/)
+* [osu!](https://osu.ppy.sh/p/api)
+* [imgflip.com](https://api.imgflip.com/)
+* [thecatapi.com](http://thecatapi.com/)
+* [tmdb.com](https://www.themoviedb.org/documentation/api)
+* [igdb.com](https://api.igdb.com)
+
+If you wish to disable one of these features, simply do not put the token into the configuration file.
+Now that the hard part is done, it's time for the fun part!
+
+
+## Starting the bot
+
+Now everything should be ready, all that is left is to actually start the bot 😊.
+This is very simple - all you have to do is run `docker-compose up` to start Nano and all needed components. If you want to be able to close the terminal and still have Nano running in the background (on a Linux host), use `docker-compose up -d`
+
+Here is what you should be seeing when doing this for the first time:
+
+![Docker-compose up -d](../images/blog_docker_dockercompose-up.png)
+
+**Congratulations! You now have a fully functioning Nano instance!**
+(If you want to stop Nano, use `docker-compose stop`)
+
+This concludes the guide. If you have *any* other questions, don't hesitate to ask me in our [Discord server](https://discord.nanobot.pw), I'll happily assist you in getting your instance online.
+
+
+---
+
+###### Note: you are not allowed to run Nano for anything but "private" purposes (such as hosting your own bot for a group of friends or a bigger server). You are also not allowed to profit in any way by self-hosting Nano.
+
+
+###### P.S.: Thank you Grimpy for that proofreading ;)
+</span>
+            </section>
+        </section>
+    </div>
+{% endblock %}
